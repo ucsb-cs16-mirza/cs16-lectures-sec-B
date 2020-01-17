@@ -1,0 +1,5 @@
+Loops: for loops, while vs. for
+Different ways of giving input to programs
+- stdin (cin)
+
+Testing

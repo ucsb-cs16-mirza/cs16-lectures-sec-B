@@ -45,7 +45,7 @@ string drawTriangle(int width){
 	int height = (width+1)/2;
     int numSpaces = (width-1)/2;
     int numStars = 1;
-	for(int row = 0; row <width; row++){
+	for(int row = 0; row < height; row++){
 		//code to print each row
 		for(int i = 0; i< numSpaces; i++){
 			result+="-";

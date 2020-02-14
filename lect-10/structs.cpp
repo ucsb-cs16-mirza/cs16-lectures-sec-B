@@ -61,7 +61,6 @@ void addMorePower(SuperHero *s, int p){
 void printHeros(SuperHero arr[], int len){
    for(int i = 0; i < len; i++){
       print(arr[i]);
-      cout<<endl;
    }
 
 }
@@ -85,7 +84,8 @@ int main(){
    // Access member vaiables of a struct
    // using the dot operator
    s1.power = 10;
-   s3 = {"Catwoman", 8, 250};
+   s3 = {"Catwoman", 8, 250}; //Reassigning values for the entire struct
+                              //C++11 syntax
    s4 = s3; //Assignment works!
    if(s1.power == s2.power){ // this is okay
       cout<<s1.name << " and "<< s2.name 
@@ -96,8 +96,9 @@ int main(){
       cout<<s1.name << " and "<< s2.name 
       <<" have the same power!\n";
    }*/
-
+   cout<<"\nPrint using pass by value\n";
    print(s1); // pass by value
+   cout<<"\nPrint using pass by reference\n";
    printEfficient(s1); // pass by reference
    addPower(s2, 1); // pass by reference
    // A.
@@ -108,9 +109,10 @@ int main(){
    addMorePower(*s1, 1);*/
 
    SuperHero arr[]={s1, s2, s3};
+   cout<<"\nPrint all the super heros"<<endl;
    printHeros(arr, sizeof(arr)/sizeof(SuperHero));
 
-   cout<<"Print the last two super heros"<<endl;
+   cout<<"\nPrint the last two super heros"<<endl;
    printHeros(arr+1 , 2);
 
 

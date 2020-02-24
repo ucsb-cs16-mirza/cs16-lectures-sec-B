@@ -1,21 +1,17 @@
-# This is a sample makefile
-# The makefile is a configuration file for make
-# name of the rule: dependency
-
-CXXFLAG = -std=c++11 -Wall
+# This is a sample Makefile
 CXX = g++
-BINARIES = superhero example
+CFLAGS = --std=c++11 -Wall
 
-all: ${BINARIES}
-	./superhero
-	./example
+all: struct heap
 
-superhero: superhero.cpp 
-	${CXX} ${CXXFLAG} superhero.cpp -o superhero
+struct: structs.cpp
+	${CXX} ${CFLAGS} structs.cpp -o struct
+	g++ -c structs.cpp
 
-example: example.cpp 
-	${CXX} ${CXXFLAG} example.cpp -o example
+heap: heap.cpp
+	${CXX} ${CFLAGS} heap.cpp -o heap
 
 clean:
-	rm superhero example
+	rm struct heap
+
 

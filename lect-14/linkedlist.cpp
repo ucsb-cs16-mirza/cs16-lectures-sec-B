@@ -1,28 +1,8 @@
-// storing sequences : data structures 
-// (1) Arrays
-// (2) LinkedLists
-// Operations with data structure in general
-/* 
-- insert a value, (for linked list) at the head of the list
-at the end of the list, anywhere in the middle
-- find an element - different flavors of this
-- print all the elements
-- min or max
-- sum 
-- count the elements
-- delete a value (hardest)
-- deleta all the values (careful)
-*/
+//linkedlist.cpp
 
 #include <iostream>
 using namespace std;
-
-
-struct Node{
-   int data; //stores the data
-   Node *next; // stores the address of the
-             //next node in the list
-};
+#include "linkedlist.h"
 
 Node* createSmallLinkedList(int x, int y){
   /* Node n1 = {x, 0};
@@ -64,13 +44,14 @@ void clear(Node *&h){
 }
 int main(){
    Node *head = 0; //empty
+   cout<<"Insert 10, 20"<<endl;
    head = insert(head, 10);//insert 10 at the head of the list
    head = insert(head, 20);
+   cout<<"Print"<<endl;
    print(head); // 20, 10
+   cout<<"Clear nodes"<<endl;
    clear(head);
-   //head = 0;
-   // Is head pointing to a valid linked list?
-   // A. Yes
-   // B. No
+   cout<<"Print"<<endl;
+   print(head); // 20, 10
    return 0;
 }

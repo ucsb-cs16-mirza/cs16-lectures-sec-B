@@ -78,7 +78,7 @@ void clear(LinkedList& ll){
 
 int main(){
    //create a new linked list
-   LinkedList list;  
+   LinkedList list = {0, 0};  
    cout<<"Insert 10, 20"<<endl;
    insert(list, 10);//insert 10 at the head of the list
    insert(list, 20);

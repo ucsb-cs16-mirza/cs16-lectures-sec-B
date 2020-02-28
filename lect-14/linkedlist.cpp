@@ -76,7 +76,6 @@ void clear(LinkedList& ll){
    ll.tail = 0;
 }
 
-
 int main(){
    //create a new linked list
    LinkedList list;  

@@ -42,16 +42,52 @@ void clear(Node *&h){
    }
    h = 0;
 }
+
+bool find(Node *h, int value){
+   Node *p = h;
+   while(p){
+      //Do something
+      if(p->data == value){
+         return true;
+      }
+      p = p->next;
+   }
+   return false;
+}
+//Node* insert(Node *h, int value);
+void insert(LinkedList& ll, int value){
+   ll.head = insert(ll.head, value);
+   if(!ll.tail){
+      //empty linked list   
+      ll.tail = ll.head;
+   }
+   
+}
+bool find(const LinkedList& ll, int value){
+   return find(ll.head, value);
+}
+
+void print(LinkedList ll){
+   print(ll.head);
+}
+void clear(LinkedList& ll){
+   clear(ll.head);
+   ll.head = 0;
+   ll.tail = 0;
+}
+
+
 int main(){
-   Node *head = 0; //empty
+   //create a new linked list
+   LinkedList list;  
    cout<<"Insert 10, 20"<<endl;
-   head = insert(head, 10);//insert 10 at the head of the list
-   head = insert(head, 20);
+   insert(list, 10);//insert 10 at the head of the list
+   insert(list, 20);
    cout<<"Print"<<endl;
-   print(head); // 20, 10
+   print(list); // 20, 10
    cout<<"Clear nodes"<<endl;
-   clear(head);
+   clear(list);
    cout<<"Print"<<endl;
-   print(head); // 20, 10
+   print(list); // 20, 10
    return 0;
 }

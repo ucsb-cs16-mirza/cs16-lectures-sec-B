@@ -4,16 +4,41 @@
 using namespace std;
 #include "linkedlist.h"
 
-Node* createSmallLinkedList(int x, int y){
-  /* Node n1 = {x, 0};
-   Node n2 = {y, 0};
-   n1.next = &n2;
-   return &n1*/
-   Node* n1 = new Node{x, 0};
-   Node* n2 = new Node{y, 0};
-   n1->next = n2;
-   return n1;
+// Precondition: h should be a valid linked list
+// which may be empty
+// Postcondition: delete all nodes with the 
+// given value, and return the head of the modified
+// list
+// 10->20->30, value 10
+Node* deleteValue(Node *h, int value){
+   if(!h){
+      return 0;
+   }
+   
+   if(h->data == value){
+      // (1) 10->20->30->10, value 10
+      // (2) 10->10->10->10->20, value 10
+      Node *newNext = deleteValue(h->next, value);
+      delete h;
+      return newNext;
+      // A. It will work for test case 2
+      // B. It will not work for test case 2
+   }else{
+      // (3) 200->20->30->10, value 10
+      // (4) 200->10->10->10->20, value 10
+      //     200->20
+      Node *newNext = deleteValue(h->next, value);
+      h->next = newNext;
+      return h;
+
+   }
+   return 0;
 }
+
+
+
+
+
 //Preconditiion - h is the head of a valid linked list
 //Postcondition - insert a new node with data "value"
 // at the head of the list and then return the new head
@@ -73,12 +98,7 @@ int min(Node *h){
 
 }
 
-// Give a linked list and a value, delete all nodes
-// with the given value, and return the head of the modified
-// list
-Node* deleteValue(Node *h, int value){
-   return 0;
-}
+
 
 bool find(Node *h, int value){
    if(!h){
